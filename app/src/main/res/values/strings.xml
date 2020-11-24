@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">UIElements2</string>
+    <string name="songs_queue">Songs Queue</string>
 </resources>

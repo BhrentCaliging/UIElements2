@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
     lateinit var songsQueueArray: Array<String>
@@ -149,7 +150,11 @@ class MainActivity : AppCompatActivity() {
                     editor.putString("songname15", songname15)
                     editor.commit()
                 }
-
+                val snackbar = Snackbar.make(this.findViewById(R.id.songsQueueListView), "Navigate To Queue", Snackbar.LENGTH_LONG)
+                snackbar.setAction("Go", View.OnClickListener {
+                    startActivity(Intent(this, QueueActivity::class.java))
+                })
+                snackbar.show()
                 true
             }
             else -> super.onContextItemSelected(item)
