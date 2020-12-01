@@ -24,6 +24,7 @@ class QueueActivity : AppCompatActivity() {
     lateinit var builder : Notification.Builder
     private val channelId = "i.apps.notifications"
     private val description = "Test notification"
+    lateinit var songsQueueArray: MutableList<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,10 +48,56 @@ class QueueActivity : AppCompatActivity() {
         val songs15 = preferences.getString("songname15", "")
 
 
-        val songsQueueArray = mutableListOf(songs, songs2, songs3, songs4, songs5, songs6, songs7, songs8, songs9, songs10, songs11, songs12, songs13, songs14, songs15)
+        songsQueueArray = mutableListOf()
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, songsQueueArray)
         val songsList = findViewById<ListView>(R.id.queue_songs)
         songsList.adapter = adapter
+
+        if(songs?.isNotEmpty()!!){
+            songsQueueArray.add(songs)
+        }
+        if(songs2?.isNotEmpty()!!){
+            songsQueueArray.add(songs2)
+        }
+        if(songs3?.isNotEmpty()!!){
+            songsQueueArray.add(songs3)
+        }
+        if(songs4?.isNotEmpty()!!){
+            songsQueueArray.add(songs4)
+        }
+        if(songs5?.isNotEmpty()!!){
+            songsQueueArray.add(songs5)
+        }
+        if(songs6?.isNotEmpty()!!){
+            songsQueueArray.add(songs6)
+        }
+        if(songs7?.isNotEmpty()!!){
+            songsQueueArray.add(songs7)
+        }
+        if(songs8?.isNotEmpty()!!){
+            songsQueueArray.add(songs8)
+        }
+        if(songs9?.isNotEmpty()!!){
+            songsQueueArray.add(songs9)
+        }
+        if(songs10?.isNotEmpty()!!){
+            songsQueueArray.add(songs10)
+        }
+        if(songs11?.isNotEmpty()!!){
+            songsQueueArray.add(songs11)
+        }
+        if(songs12?.isNotEmpty()!!){
+            songsQueueArray.add(songs12)
+        }
+        if(songs13?.isNotEmpty()!!){
+            songsQueueArray.add(songs13)
+        }
+        if(songs14?.isNotEmpty()!!){
+            songsQueueArray.add(songs14)
+        }
+        if(songs15?.isNotEmpty()!!){
+            songsQueueArray.add(songs15)
+        }
 
         songsList.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
